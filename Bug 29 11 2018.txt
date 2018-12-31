@@ -1,0 +1,9 @@
+The ledge position is -7.5 2.3 4.3
+The hand is expected to be in the same position
+The correct player position, for the hand to be in this position is -7.5 0.9 3.9
+But the calculated target player position was -7.5 0.3 3.8
+Hand offset is 0 2 0.4
+
+While X & Z are close enough, the problem seem to be in Y
+
+It is possible that this is affected by the scale 0.7 0.7 0.7

@@ -1,0 +1,68 @@
+Make sure player character and all its children are in PLAYER layer
+Make sure the player has a scale of '1', or the internal logic need to consider x,y,z scale in each calculation!
+Add below objects
+	CameraFocusTarget
+	PivotReference
+	HandPosition
+	PlayerPosition
+	Chest
+	Shoulder_r
+	Shoulder_l
+
+Set Below variables
+	MovementBlockerLayer -> Everything Except Player
+	JumpForce 15
+	DownwardForce 0.75
+	LedgeScanStartPercentage 95
+	MinimumLedgeHeight 0.1
+	HandFitSize 0.075 0.025 0.075
+	SideLeapAngleCheck 80
+	ClimbSpeed 5
+
+        public float scan_Height = 0.5f;
+        public float scan_Depth = 0.8f;
+        public float forwardScan_Distance = 0.5f;
+        public float forwardScan_startDistance = 0.2f;//LB
+        public float forwardScan_endDistance = 0.5f;//LB
+        public float forwardScan_distanceStep = 0.1f;//LB
+        public float forwardScan_PrecisionSteps = 0.01f;
+
+        public float sideScan_startDistance = 0.75f;
+        public float sideScan_endDistance = 0;
+        public float sideScan_step = 0.1f;
+        public float sideScan_sweepStartAngle = 90;
+        public float sideScan_sweepEndAngle = -90;
+        public float sideScan_sweepStep = 10;
+        //public float sideScan_scanDistance = 0.2f;
+        public float sideScan_scanStartDistance = 0;//LB
+        public float sideScan_scanEndDistance = 0.2f;//LB
+        public float sideScan_scanStep = 0.1f;
+        public float sideScan_precisionStep = 0.01f;
+
+        //Have different start distance for non horizontal scans
+        //Any scan not horizontal is a vertical scan, allowing player to leap too far above/below feels unnatural
+        public float leapScan_thresholdAngle = 25.0f;
+        public float leapScan_thresholdBreachStartDistance = 1.2f; //Should be a little over the vertical ledge placement distance
+        public float leapScan_startDistance = 2.0f;
+        public float leapScan_endDistance = 0.5f;
+        public float leapScan_step = 0.1f;
+        public float leapScan_sweepStartAngle = 90;
+        public float leapScan_sweepEndAngle = -25;
+        public float leapScan_sweepStep = 10;
+        //public float leapScan_scanDistance = 0.2f;
+        public float leapScan_scanStartDistance = 0;//LB
+        //This should be > maximum Z distance between two ledges + maximum Z distance between player and the current ledge
+        public float leapScan_scanEndDistance = 1.0f;//LB
+        public float leapScan_scanStep = 0.1f;
+        public float leapScan_precisionStep = 0.01f;
+
+Set below references
+	PlayerCharRenderer
+	PivotReference
+	HandTarget
+	BodyTarget
+	Chest
+	Shoulder_r
+	Shoulder_l
+
+HandGizmo?
